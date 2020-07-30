@@ -5,7 +5,7 @@ bot.on('messageDelete', message => {
     if (!message.guild) return;
     if (message.author.bot) return;
 
-    if (message.mentions.members.first()) {
+    if (message.mentions.members.first() && message.mentions.members.first().id != message.author.id) {
         let embed = new Discord.MessageEmbed()
             .setTitle("Ghost ping detected!")
             .addField('**Author**', message.author)
